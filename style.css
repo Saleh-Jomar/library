@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+header{
+    padding: 2rem;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+h1{
+    margin: 0;
+    font-size: 5rem;
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2rem;
+    padding: 2rem;
+}
