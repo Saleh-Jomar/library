@@ -13,9 +13,47 @@ h1{
     margin: 0;
     font-size: 5rem;
 }
-main {
+.library-container {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 2rem;
     padding: 2rem;
+}
+.add-button {
+    width: 200px;
+    height: 300px;
+    display: grid;
+    justify-items: center;
+    box-shadow: 0 0 4px 10px rgb(60 59 60 / 60%);
+    border-radius: 10px;
+    transform: scale(0.8);
+    transition: all 1s ease;
+}
+.add-button:hover {
+    transform: scale(1);
+    cursor: pointer;
+    background-color: rgba(24, 211, 117, 0.5);
+}
+.plus {
+    align-self: center;
+    font-size: 200px;
+    transition: all 1s ease;
+}
+.add-button:hover .plus {
+    transform: rotate(90deg) scale(1.1);
+}
+.book {
+    width: 100%;
+    height: 300px;
+    display: grid;
+    justify-items: center;
+    box-shadow: 0 0 4px 10px rgb(60 59 60 / 60%);
+    border-radius: 10px;
+    transform: scale(0.8);
+    transition: all 1s ease;
+}
+.book:hover {
+    transform: scale(1);
+    cursor: pointer;
 }
