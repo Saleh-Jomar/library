@@ -1,4 +1,5 @@
 let myLibrary = [];
+const addButton = document.querySelector('.add-button');
 
 class Book{
     constructor(name,author,pages,status){
@@ -10,9 +11,5 @@ class Book{
 }
 Book.prototype.info = function(){
     return `${this.name} by ${this.author}, ${this.pages} pages, ${this.status}.`;
-}
-
-function addBookToLibrary(){
-    
 }
 
