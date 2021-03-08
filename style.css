@@ -1,34 +1,33 @@
 * {
     box-sizing: border-box;
 }
+html {
+    font-size: 10px;
+}
 body {
     margin: 0;
 }
 header{
-    padding: 2rem;
+    padding: 5rem;
     border-bottom: 2px solid black;
-    text-align: center;
+    text-align: center; 
 }
 h1{
     margin: 0;
-    font-size: 5rem;
+    font-size: 10rem;
 }
-h3{
-    font-size: 3rem;
-    margin: 20px 0;
+h3 {
+    margin: 2rem 0;
+    font-size: 4rem;
 }
 .library-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-}
-.library-container > * {
-    flex: 0 0 30rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+    padding: 3rem;
 }
 .add-button, .book {
-    height: 300px;
+    height: 35rem;
     text-align: center;
     box-shadow: 0 0 4px 10px rgb(60 59 60 / 60%);
     border-radius: 10px;
@@ -40,7 +39,7 @@ h3{
 }
 .add-button .plus {
     align-self: center;
-    font-size: 200px;
+    font-size: 20rem;
     transition: all 0.75s ease;
 }
 .library-container > *:hover {
@@ -48,13 +47,13 @@ h3{
     cursor: pointer;
 }
 .add-button:hover {
-    background-color: rgba(24, 211, 117, 0.5);
+    background-color: rgba(17, 243, 130, 0.5);
 }
 .add-button:hover .plus {
     transform: rotate(90deg) scale(1.1);
 }
 .form-popup {
-    width: 35%;
+    width: 30%;
     background-color: white;
     position: fixed;
     z-index: 1;
@@ -65,29 +64,38 @@ h3{
     border: 2px solid black;
     border-radius: 10px;
     text-align: center;
-    transform: translate(-50%, -50%);
-    background: rgba(204,255,255);
+    transform: translate(-50%, -50%)scale(0);
     transition: 200ms ease-in-out;
 }
+.overlay-active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
 .form-popup-active{
-    transform: translate(-50%,-50%) sclae(1);
+    transform: translate(-50%,-50%) scale(1);
 }
 .toggle-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
-}
-.switch {
+    margin: 2rem;
+    font-size: .75rem;
+}  
+#switch {
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 45px;
+    width: 11em;
+    height: 6em;
     margin: 0 15px;
+    font-size: 1em;
 }
 .slider {
     position: absolute;
-    border-radius: 35px;
+    border-radius: 3.5em;
     cursor: pointer;
     background-color: #ccc;
     transition: .4s;
@@ -96,47 +104,51 @@ h3{
     left: 0;
     right: 0;
 }
-.switch input {display: none;}
+#switch input {display: none;}
 
 .slider::before {
     position: absolute;
-    bottom: 5px;
-    left: 5px;
-    height: 35px;
-    width: 35px;
+    bottom: 0.5em;
+    left: 0.5em;
+    height: 5em;
+    width: 5em;
     border-radius: 50%;
     background-color: white;
     transition: .4s;
     content: "";
 }
-.switch input:checked + .slider {
-    background-color: pink;
+#switch input:checked + .slider {
+    background-color: rgb(30, 190, 182);
 }
-.switch input:checked + .slider::before {
-    transform: translateX(35px)
+#switch input:checked + .slider::before {
+    transform: translateX(5em)
 }
 .form-popup form input {
-    width: 75%;
-    padding: .8rem;
-    margin: 1rem;
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    width: 80%;
+    padding: .5em;
+    margin: .5em;
     border-radius: 10px;
 }
 .form-popup form input:focus {
     outline: none;
 }
 .form-popup form label {
-    font-size: 1.5rem;
+    font-size: 3em;
 }
 .form-popup form button {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    padding: 10px;
+    padding: .5em;
     border-radius: 10px;
-    background-color: rgb(243, 227, 10);
+    background-color: rgb(32, 207, 105);
     cursor: pointer;
 }
 .form-popup form button:hover {
-    background-color: rgb(231, 216, 7);
+    background-color: rgb(231, 52, 7);
+}
+.form-popup form button:focus {
+    outline: none;
 }
 
