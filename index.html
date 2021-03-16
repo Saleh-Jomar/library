@@ -15,31 +15,46 @@
     </header>
     <main>
         <div class="library-container">
-            <div class='book'>TEMPLATE</div>
-            <div class='book'></div>
+            
+            <div class='book template'>
+                <h3 class="bookTitle">Title</h3>
+                <h2 class='bookAuthor'>Author</h2>
+                <h2 class='bookPages'>No. Of Pages</h2>
+                <div class='toggle-container'>
+                    <label class='toggle-label'>Read:</label>
+                    <label class="switch">
+                        <input type="checkbox" class="bookStatus">
+                        <span class="slider"></span>
+                    </label>
+                </div>    
+            </div>
+
             <div class="add-button">
                 <span class="plus">+</span>
             </div>
             
         </div>
     </main>
+
     <div class="form-popup">
         <form>
             <h3>Add Book</h3>
-            <input type="text" placeholder="Title">
-            <input type="text" placeholder="Author">
-            <input type="number" placeholder="No. of Pages">
+            <input type="text" placeholder="Title" id="title" required>
+            <input type="text" placeholder="Author" id='author' required>
+            <input type="number" placeholder="No. of Pages" id='pagenumber' required>
             <div class='toggle-container'>
-                <label>Read:</label>
-                <label id="switch">
-                    <input type="checkbox">
+                <label class='toggle-label'>Read:</label>
+                <label class="switch">
+                    <input type="checkbox" id='readStatus'>
                     <span class="slider"></span>
                 </label>
             </div>
             <button>Submit</button>
         </form>
     </div>
+
     <div class='overlay'></div>
+
 </body>
 
 </html>

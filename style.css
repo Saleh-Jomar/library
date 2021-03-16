@@ -44,7 +44,6 @@ h3 {
 }
 .library-container > *:hover {
     transform: scale(1);
-    cursor: pointer;
 }
 .add-button:hover {
     background-color: rgba(17, 243, 130, 0.5);
@@ -85,7 +84,7 @@ h3 {
     margin: 2rem;
     font-size: .75rem;
 }  
-#switch {
+.switch {
     position: relative;
     display: inline-block;
     width: 11em;
@@ -104,7 +103,7 @@ h3 {
     left: 0;
     right: 0;
 }
-#switch input {display: none;}
+.switch input {display: none;}
 
 .slider::before {
     position: absolute;
@@ -117,10 +116,10 @@ h3 {
     transition: .4s;
     content: "";
 }
-#switch input:checked + .slider {
+.switch input:checked + .slider {
     background-color: rgb(30, 190, 182);
 }
-#switch input:checked + .slider::before {
+.switch input:checked + .slider::before {
     transform: translateX(5em)
 }
 .form-popup form input {
@@ -134,7 +133,7 @@ h3 {
 .form-popup form input:focus {
     outline: none;
 }
-.form-popup form label {
+.toggle-label {
     font-size: 3em;
 }
 .form-popup form button {
@@ -151,4 +150,12 @@ h3 {
 .form-popup form button:focus {
     outline: none;
 }
-
+.bookTitle {
+    font-size: 4rem;
+}
+.bookAuthor {
+    font-size: 3rem;
+}
+.bookPages{
+    font-size: 2.5rem;
+}
