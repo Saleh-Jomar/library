@@ -33,6 +33,7 @@ h3 {
     border-radius: 10px;
     transform: scale(0.8);
     transition: all 0.75s ease;
+    padding: 4rem;
 }
 .add-button {
     display: grid;
@@ -67,7 +68,7 @@ h3 {
     transition: 200ms ease-in-out;
 }
 .overlay-active{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -150,12 +151,9 @@ h3 {
 .form-popup form button:focus {
     outline: none;
 }
-.bookTitle {
-    font-size: 4rem;
-}
-.bookAuthor {
-    font-size: 3rem;
-}
-.bookPages{
-    font-size: 2.5rem;
+.bookTitle,.bookAuthor,.bookPages {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 0.5rem 0;
 }

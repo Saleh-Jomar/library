@@ -1,5 +1,11 @@
 let myLibrary = [];
 
+const template = document.getElementById('template');
+const libraryContainer = document.querySelector('.library-container');
+
+window.onload = () => libraryContainer.removeChild(template);
+
+
 //Object Book
 
 class Book {
@@ -10,12 +16,26 @@ class Book {
         this.status = status;
     }
 }
+
 Book.prototype.info = function () {
     return `${this.name} by ${this.author}, ${this.pages} pages, ${this.status}.`;
 }
-Book.prototype.display = function () {
 
+Book.prototype.display = function () {
+    const templateClone = template.cloneNode(true);
+    const bookTitle = templateClone.querySelector('.bookTitle');
+    const bookAuthor = templateClone.querySelector('.bookAuthor');
+    const bookPages = templateClone.querySelector('.bookPages');
+    const bookStatus =  templateClone.querySelector('.bookStatus');
+    
+    bookTitle.textContent = `"${this.name}"`;
+    bookAuthor.textContent = this.author;
+    bookPages.textContent = `${this.pages} pages`;
+    bookStatus.checked = this.status;
+
+    libraryContainer.prepend(templateClone);
 }
+
 //PopUp
 
 const formPopUp = document.querySelector('.form-popup');
@@ -60,3 +80,5 @@ function addBook(e) {
     newBook.display();
     PopUp();
 }
+
+//Library Manipulation
