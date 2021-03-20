@@ -32,6 +32,7 @@ Book.prototype.display = function () {
     bookAuthor.textContent = this.author;
     bookPages.textContent = `${this.pages} pages`;
     bookStatus.checked = this.status;
+    templateClone.id = myLibrary.length - 1
 
     libraryContainer.prepend(templateClone);
 }
@@ -82,3 +83,19 @@ function addBook(e) {
 }
 
 //Library Manipulation
+
+function indexAdjust(index){
+    const books = document.getElementsByClassName('book');
+    adjust = myLibrary.length - 1;
+    stopIndex = myLibrary.length - index;
+    for (let i=0; i < stopIndex; i++){
+        books[i].id = adjust;
+        adjust -= 1;
+    }
+}
+
+function remove(index){
+    myLibrary.splice(index,1);
+    libraryContainer.removeChild(document.getElementById(`${index}`));
+    indexAdjust(index);
+}
