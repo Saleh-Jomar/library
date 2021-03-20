@@ -22,7 +22,7 @@ h3 {
 }
 .library-container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3rem;
     padding: 3rem;
 }
@@ -156,4 +156,10 @@ h3 {
     font-weight: 300;
     margin: 0;
     padding: 0.5rem 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
