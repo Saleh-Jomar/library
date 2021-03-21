@@ -27,6 +27,7 @@ h3 {
     padding: 3rem;
 }
 .add-button, .book {
+    position: relative;
     height: 35rem;
     text-align: center;
     box-shadow: 0 0 4px 10px rgb(60 59 60 / 60%);
@@ -43,11 +44,9 @@ h3 {
     font-size: 20rem;
     transition: all 0.75s ease;
 }
-.library-container > *:hover {
-    transform: scale(1);
-}
 .add-button:hover {
     background-color: rgba(17, 243, 130, 0.5);
+    transform: scale(1);
 }
 .add-button:hover .plus {
     transform: rotate(90deg) scale(1.1);
@@ -162,4 +161,19 @@ h3 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+.book .remove-button-container {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+}
+.book .remove-button {
+    font-size: 2rem;
+}
+.book .remove-button:hover{
+    background-color: red;
+    color: white;
 }

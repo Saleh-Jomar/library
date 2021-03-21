@@ -26,8 +26,8 @@ Book.prototype.display = function () {
     const bookTitle = templateClone.querySelector('.bookTitle');
     const bookAuthor = templateClone.querySelector('.bookAuthor');
     const bookPages = templateClone.querySelector('.bookPages');
-    const bookStatus =  templateClone.querySelector('.bookStatus');
-    
+    const bookStatus = templateClone.querySelector('.bookStatus');
+
     bookTitle.textContent = `"${this.name}"`;
     bookAuthor.textContent = this.author;
     bookPages.textContent = `${this.pages} pages`;
@@ -80,22 +80,52 @@ function addBook(e) {
     myLibrary.push(newBook);
     newBook.display();
     PopUp();
+    saveLocal();
 }
 
 //Library Manipulation
 
-function indexAdjust(index){
+function indexAdjust(index) {
     const books = document.getElementsByClassName('book');
     adjust = myLibrary.length - 1;
     stopIndex = myLibrary.length - index;
-    for (let i=0; i < stopIndex; i++){
+    for (let i = 0; i < stopIndex; i++) {
         books[i].id = adjust;
         adjust -= 1;
     }
 }
 
-function remove(index){
-    myLibrary.splice(index,1);
+function remove(index) {
+    myLibrary.splice(index, 1);
     libraryContainer.removeChild(document.getElementById(`${index}`));
     indexAdjust(index);
 }
+
+libraryContainer.addEventListener('click', libraryModify);
+
+function libraryModify(e) {
+    if (e.target.classList.contains('remove-button')) {
+        index = e.target.parentNode.parentNode.id;
+        remove(index);
+    }
+    if (e.target.classList.contains('bookStatus')) {
+        index = e.target.parentNode.parentNode.parentNode.id;
+        myLibrary[index].status = e.target.checked
+    }
+    saveLocal();
+}
+
+//Local Storage
+
+function saveLocal() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+function initiate() {
+    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    if (myLibrary === null) myLibrary = [];
+    for (let i=0; i<myLibrary.length; i++){
+        myLibrary[i].display();
+    }
+}
+initiate();
