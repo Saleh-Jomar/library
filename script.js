@@ -3,9 +3,6 @@ let myLibrary = [];
 const template = document.getElementById('template');
 const libraryContainer = document.querySelector('.library-container');
 
-window.onload = () => libraryContainer.removeChild(template);
-
-
 //Object Book
 
 class Book {
@@ -33,6 +30,7 @@ Book.prototype.display = function () {
     bookPages.textContent = `${this.pages} pages`;
     bookStatus.checked = this.status;
     templateClone.id = myLibrary.indexOf(this);
+    templateClone.classList.remove('hidden');
 
     libraryContainer.prepend(templateClone);
 }
