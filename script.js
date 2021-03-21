@@ -32,7 +32,7 @@ Book.prototype.display = function () {
     bookAuthor.textContent = this.author;
     bookPages.textContent = `${this.pages} pages`;
     bookStatus.checked = this.status;
-    templateClone.id = myLibrary.length - 1
+    templateClone.id = myLibrary.indexOf(this);
 
     libraryContainer.prepend(templateClone);
 }
@@ -78,9 +78,10 @@ function addBook(e) {
         return;
     }
     myLibrary.push(newBook);
+    saveLocal();
     newBook.display();
     PopUp();
-    saveLocal();
+    
 }
 
 //Library Manipulation
@@ -124,8 +125,9 @@ function saveLocal() {
 function initiate() {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
     if (myLibrary === null) myLibrary = [];
-    for (let i=0; i<myLibrary.length; i++){
+    for (let i=0; i < myLibrary.length; i++){
+        myLibrary[i].__proto__ = Book.prototype
         myLibrary[i].display();
-    }
+    }    
 }
 initiate();
