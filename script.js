@@ -30,7 +30,7 @@ Book.prototype.display = function () {
     bookPages.textContent = `${this.pages} pages`;
     bookStatus.checked = this.status;
     templateClone.id = myLibrary.indexOf(this);
-    templateClone.classList.remove('hidden');
+    templateClone.removeAttribute('style');
 
     libraryContainer.prepend(templateClone);
 }
